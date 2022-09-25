@@ -16,12 +16,13 @@ userRoute.post("/signup", async(req,res)=>{
     let {email, password, age} = req.body;
     bcrypt.hash(password, 5, async function(err, hash) {
         if(err){
-            res.send("something went wrong")
+            res.json({"msg":"something went wrong"})
         }
         else{
             let newUser = new UserModel({email,password:hash,age})
             await newUser.save()
-            res.send("signnedup sucessfully")
+            res.json({"msg":"signnedup sucessfully"})
+            
         }
     });
 })
