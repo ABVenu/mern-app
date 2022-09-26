@@ -17,9 +17,9 @@ const Signup = () => {
 
     function handleSubmit(e){
          e.preventDefault()
-        console.log(inputData)
+        
 
-        fetch("http://localhost:8080/user/signup",{
+        fetch("https://tranquil-thicket-73961.herokuapp.com/user/signup",{
             method:"POST",
             headers:{"content-type":"application/json"},
             body:JSON.stringify(inputData)

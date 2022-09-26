@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 
 
-const NotesId = ({match}) => {
+const NotesId = () => {
     var token = localStorage.getItem("psc_app_token")
     const [msg,setMsg] = useState("")
     const navigate = useNavigate()
@@ -17,9 +17,9 @@ const NotesId = ({match}) => {
 
     function handleDelete(e){
         e.preventDefault()
-        console.log(notesId)
+       
 
-        fetch(`http://localhost:8080/notes/delete/${notesId}`, {
+        fetch(`https://tranquil-thicket-73961.herokuapp.com/notes/delete/${notesId}`, {
         method:"DELETE",
         headers:{
         "content-type":"application/json",
@@ -30,6 +30,7 @@ const NotesId = ({match}) => {
         setMsg(res.msg)
     //   console.log(res)
       setTimeout(()=>{navigate("/notes")},1000)
+      localStorage.removeItem("note")
      } )
 .catch((err)=> console.log(err))
 

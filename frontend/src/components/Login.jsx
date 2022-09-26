@@ -19,7 +19,7 @@ const Login = () => {
          e.preventDefault()
         console.log(inputData)
 
-        fetch("http://localhost:8080/user/login",{
+        fetch("https://tranquil-thicket-73961.herokuapp.com/user/login",{
             method:"POST",
             headers:{"content-type":"application/json"},
             body:JSON.stringify(inputData)

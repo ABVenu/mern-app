@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import Home from "./Home";
 import Login from "./Login";
 import Notes from "./Notes";
 import NotesId from "./NotesId";
@@ -8,7 +9,8 @@ import Update from "./Update";
 export default function AllRoutes(){
     return (
         <Routes>
-   <Route  path="/" element={<Signup />} />
+   <Route  path="/" element={<Home />} />
+   <Route  path="/signup" element={<Signup />} />
    <Route  path="/login" element={<Login />} />
    <Route  path="/notes" element={<Notes />} />
    <Route  path="/notes/:notesId" element={<NotesId />} />

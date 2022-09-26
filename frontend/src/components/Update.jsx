@@ -20,7 +20,8 @@ const Update = () => {
         // console.log(notesId)
         // console.log(inputNotes)
         // http://localhost:8080/notes/delete/${notesId}
-        fetch(`http://localhost:8080/notes/edit/${notesId}`, {
+        // https://tranquil-thicket-73961.herokuapp.com/
+        fetch(`https://tranquil-thicket-73961.herokuapp.com/notes/edit/${notesId}`, {
           method:"PATCH",
           headers:{
             "content-type":"application/json",
@@ -28,8 +29,9 @@ const Update = () => {
           },
           body:JSON.stringify(inputNotes)
         }).then((res)=> res.json()).then((res)=> {setMsg(res.msg)
-        console.log(res)
-        setTimeout(()=>{navigate("/notes")},1000)}).catch((err)=> console.log(err))
+        // console.log(res)
+        setTimeout(()=>{navigate("/notes")},1000)
+        }).catch((err)=> console.log(err))
       }
   return (
     <div>Update
@@ -53,3 +55,4 @@ const Update = () => {
 }
 
 export default Update
+

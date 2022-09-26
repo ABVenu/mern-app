@@ -12,7 +12,7 @@ const Notes = () => {
   const [msg,setMsg] = useState("")
 
   function getData(){
-    fetch("http://localhost:8080/notes",{
+    fetch("https://tranquil-thicket-73961.herokuapp.com/notes",{
       method:"GET",
       headers:{
         "authorization":`Bearer ${token}`
@@ -36,15 +36,14 @@ const Notes = () => {
 
   function handleSubmit(e){
     e.preventDefault();
-    fetch("http://localhost:8080/notes/addnotes", {
+    fetch("https://tranquil-thicket-73961.herokuapp.com/notes/addnotes", {
       method:"POST",
       headers:{
         "content-type":"application/json",
         "authorization":`Bearer ${token}`
       },
       body:JSON.stringify(inputNotes)
-    }).then((res)=> res.json()).then((res)=> {setMsg(res.msg)
-    console.log(res)},
+    }).then((res)=> res.json()).then((res)=> {setMsg(res.msg)},
     alert("Notes Added Successfully"),
     window.location.reload()).catch((err)=> console.log(err))
   }
@@ -70,7 +69,7 @@ function handleClick(e){
       </form>
         {msg? <h3>{msg}</h3>:<h3></h3>}
       <div>
-        <h1>Notes Listed Below</h1>
+        <h3>Notes Listed Below</h3>
         {
           notes && notes.map((el)=>(<div key={el._id} >
             <div style={{display:'flex', gap:"30px", alignItems:"center", justifyContent:"center"}}>
